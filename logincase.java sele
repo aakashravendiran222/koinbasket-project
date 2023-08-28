@@ -1,0 +1,29 @@
+package koinbaskettesting;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class logincase {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Vinith\\Downloads\\chromedriver_win32 (1).zip\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://web.koinbasket.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.id("identifierId")).sendKeys("aakashvijay444@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("12345678");
+		driver.findElement(By.className("koinbasket")).click();
+		String at = driver.getTitle();
+		String et = "login";
+		driver.close();
+		if (at.equalsIgnoreCase(et))
+		{
+			System.out.println("Test successful");
+		}
+		else
+		{
+			System.out.println("Test Failure");
+		}
+	}
+}
